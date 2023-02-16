@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2a4674
+}
+
+button {
+    width: 20%;
+    padding: 10px;
+    margin: 30px;
+    border: groove;
+    border-radius: 15px;
+    border-color: #f8c543;
+    background-color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #56b6a8;
+}
+.link {
+    color:#2a4674;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 10px;
+}
