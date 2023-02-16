@@ -5,15 +5,15 @@ const secretKey='secretito';
 
 module.exports.createUser = async (req, res) => {
   try {
-    const { name, email, password, confirmPassword } = req.body;
+    const { name, lastName, email, password, confirmPassword } = req.body;
 
     if (password !== confirmPassword) {
       return res.status(400).json({ message: 'Contraseñas no coinciden' });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    //const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = new User({ name, email, password: hashedPassword });
+    const user = new User({ name, lastName, email, password, confirmPassword});
     await user.save();
 
     res.status(201).json({ message: 'Usuario creado!' });
@@ -37,7 +37,6 @@ module.exports.loginUser = async (req, res) => {
                 email: user.email 
             }, secretKey);
             
-            return 
                 res.cookie('token', token, secretKey, { httpOnly: true });
                 res.status(200).json({ message: 'Usuario logueado con éxito' });
 

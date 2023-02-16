@@ -24,8 +24,7 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: [true, "Debe crear una contraseña"],
-        minlength: [6, "La contraseña debe tener al menos 6 caracteres"],
-        maxlength: [20, "La contraseña no debe superar los 20 caracteres"]
+        minlength: [6, "La contraseña debe tener al menos 6 caracteres"]
     }
 }, { timestamps: true });
 
@@ -34,7 +33,8 @@ userSchema.virtual('confirmPassword')
     .set( value => this._confirmPassword = value );
 
 userSchema.pre('validate', function(next) {
-    if (this.password !== this._confirmPassword) {
+    console.log(this.password, this.confirmPassword)
+    if (this.password !== this.confirmPassword) {
         this.invalidate('confirmPassword', "Las contraseñas deben coincidir");
     }
     next();
