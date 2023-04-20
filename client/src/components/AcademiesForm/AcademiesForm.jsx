@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { createAcademy } from '../../services/academias_service';
+import styles from "./AcademiesForm.module.css";
 
 const AcademiesForm = () => {
     const [academia, setAcademia]= useState({
@@ -50,7 +51,7 @@ const AcademiesForm = () => {
     };
 
     return (
-        <div>
+        <div className= {styles["cont"]}>
             <div>
                 <h1>Inscribe aquí tus academias</h1>
                 <button>
@@ -77,119 +78,131 @@ const AcademiesForm = () => {
             >
                 {({ errors, touched }) => (
                     <Form>
-                        <div>
-                            <label htmlFor="fullName">Nombre y apellido del estudiante:</label>
-                            <Field name="fullName" />
-                            {(errors.fullName && touched.fullName) && (
-                                <p>{errors.fullName}</p>
-                            )}
-                            {errorsResponse?.fullName && (
-                                <div>{errorsResponse.fullName.message}</div>
-                            )}
-                            <label htmlFor="grade">Curso actual del estudiante:</label>
-                            <Field name="grade" />
-                            {(errors.grade && touched.grade) && (
-                                <p>{errors.grade}</p>
-                            )}
-                            {errorsResponse?.grade && (
-                                <div>{errorsResponse.grade.message}</div>
-                            )}
+                        <div className={styles["form"]}>
+                            <div>
+                                <label htmlFor="fullName">Nombre y apellido del estudiante:</label>
+                                <Field name="fullName" />
+                                {(errors.fullName && touched.fullName) && (
+                                    <p>{errors.fullName}</p>
+                                )}
+                                {errorsResponse?.fullName && (
+                                    <div>{errorsResponse.fullName.message}</div>
+                                )}
+                            </div>
+                            <div>
+                                <label htmlFor="grade">Curso actual del estudiante:</label>
+                                <Field name="grade" />
+                                {(errors.grade && touched.grade) && (
+                                    <p>{errors.grade}</p>
+                                )}
+                                {errorsResponse?.grade && (
+                                    <div>{errorsResponse.grade.message}</div>
+                                )}
+                            </div>
+                            <div>
                             <label htmlFor="age">Edad del estudiante:</label>
-                            <Field name="age" />
-                            {(errors.age && touched.age) && (
-                                <p>{errors.age}</p>
-                            )}
-                            {errorsResponse?.age && (
-                                <div>{errorsResponse.age.message}</div>
-                            )}
-                            <label htmlFor="parentName">Nombre y apellido del apoderado:</label>
-                            <Field name="parentName" />
-                            {(errors.parentName && touched.parentName) && (
-                                <p>{errors.parentName}</p>
-                            )}
-                            {errorsResponse?.parentName && (
-                                <div>{errorsResponse.parentName.message}</div>
-                            )}
-                            <label htmlFor="parentPhone">Teléfono del apoderado:</label>
-                            <Field name="parentPhone" />
-                            {(errors.parentPhone && touched.parentPhone) && (
-                                <p>{errors.parentPhone}</p>
-                            )}
-                            {errorsResponse?.parentPhone && (
-                                <div>{errorsResponse.parentPhone.message}</div>
-                            )}
-                            <label htmlFor="academies">Academias:</label>
-                                <label>
-                                <Field type="checkbox" name="academies" value="futbol"/>
-                                {(errors.academies && touched.academies) && (
-                                    <p>{errors.academies}</p>
+                                <Field name="age" />
+                                {(errors.age && touched.age) && (
+                                    <p>{errors.age}</p>
                                 )}
-                                {errorsResponse?.academies && (
-                                    <div>{errorsResponse.academies.message}</div>
+                                {errorsResponse?.age && (
+                                    <div>{errorsResponse.age.message}</div>
                                 )}
-                                Fútbol
+                            </div>
+                            <div>
+                                <label htmlFor="parentName">Nombre y apellido del apoderado:</label>
+                                <Field name="parentName" />
+                                {(errors.parentName && touched.parentName) && (
+                                    <p>{errors.parentName}</p>
+                                )}
+                                {errorsResponse?.parentName && (
+                                    <div>{errorsResponse.parentName.message}</div>
+                                )}
+                            </div>
+                            <div>
+                                <label htmlFor="parentPhone">Teléfono del apoderado:</label>
+                                <Field name="parentPhone" />
+                                {(errors.parentPhone && touched.parentPhone) && (
+                                    <p>{errors.parentPhone}</p>
+                                )}
+                                {errorsResponse?.parentPhone && (
+                                    <div>{errorsResponse.parentPhone.message}</div>
+                                )}
+                            </div>
+                            <div>
+                                <label htmlFor="academies">Academias:</label>
+                                    <label>
+                                    <Field type="checkbox" name="academies" value="futbol"/>
+                                    {(errors.academies && touched.academies) && (
+                                        <p>{errors.academies}</p>
+                                    )}
+                                    {errorsResponse?.academies && (
+                                        <div>{errorsResponse.academies.message}</div>
+                                    )}
+                                    Fútbol
+                                    </label>
+                                    <label>
+                                    <Field type="checkbox" name="academies" value="tenis"/>
+                                    {(errors.academies && touched.academies) && (
+                                        <p>{errors.academies}</p>
+                                    )}
+                                    {errorsResponse?.academies && (
+                                        <div>{errorsResponse.academies.message}</div>
+                                    )}
+                                    Tenis
+                                    </label>
+                                    <label>
+                                    <Field type="checkbox" name="academies" value="natacion"/>
+                                    {(errors.academies && touched.academies) && (
+                                        <p>{errors.academies}</p>
+                                    )}
+                                    {errorsResponse?.academies && (
+                                        <div>{errorsResponse.academies.message}</div>
+                                    )}
+                                    Natación
+                                    </label>
+                                    <label>
+                                    <Field type="checkbox" name="academies" value="atletismo"/>
+                                    {(errors.academies && touched.academies) && (
+                                        <p>{errors.academies}</p>
+                                    )}
+                                    {errorsResponse?.academies && (
+                                        <div>{errorsResponse.academies.message}</div>
+                                    )}
+                                    Atletismo
+                                    </label>
+                                    <label>
+                                    <Field type="checkbox" name="academies" value="teatro"/>
+                                    {(errors.academies && touched.academies) && (
+                                        <p>{errors.academies}</p>
+                                    )}
+                                    {errorsResponse?.academies && (
+                                        <div>{errorsResponse.academies.message}</div>
+                                    )}
+                                    Teatro
+                                    </label>
+                                    <label>
+                                    <Field type="checkbox" name="academies" value="musica"/>
+                                    {(errors.academies && touched.academies) && (
+                                        <p>{errors.academies}</p>
+                                    )}
+                                    {errorsResponse?.academies && (
+                                        <div>{errorsResponse.academies.message}</div>
+                                    )}
+                                    Música
+                                    </label>
+                                    <label>
+                                    <Field type="checkbox" name="academies" value="astronomia"/>
+                                    {(errors.academies && touched.academies) && (
+                                        <p>{errors.academies}</p>
+                                    )}
+                                    {errorsResponse?.academies && (
+                                        <div>{errorsResponse.academies.message}</div>
+                                    )}
+                                    Astronomía
                                 </label>
-                                <label>
-                                <Field type="checkbox" name="academies" value="tenis"/>
-                                {(errors.academies && touched.academies) && (
-                                    <p>{errors.academies}</p>
-                                )}
-                                {errorsResponse?.academies && (
-                                    <div>{errorsResponse.academies.message}</div>
-                                )}
-                                Tenis
-                                </label>
-                                <label>
-                                <Field type="checkbox" name="academies" value="natacion"/>
-                                {(errors.academies && touched.academies) && (
-                                    <p>{errors.academies}</p>
-                                )}
-                                {errorsResponse?.academies && (
-                                    <div>{errorsResponse.academies.message}</div>
-                                )}
-                                Natación
-                                </label>
-                                <label>
-                                <Field type="checkbox" name="academies" value="atletismo"/>
-                                {(errors.academies && touched.academies) && (
-                                    <p>{errors.academies}</p>
-                                )}
-                                {errorsResponse?.academies && (
-                                    <div>{errorsResponse.academies.message}</div>
-                                )}
-                                Atletismo
-                                </label>
-                                <label>
-                                <Field type="checkbox" name="academies" value="teatro"/>
-                                {(errors.academies && touched.academies) && (
-                                    <p>{errors.academies}</p>
-                                )}
-                                {errorsResponse?.academies && (
-                                    <div>{errorsResponse.academies.message}</div>
-                                )}
-                                Teatro
-                                </label>
-                                <label>
-                                <Field type="checkbox" name="academies" value="musica"/>
-                                {(errors.academies && touched.academies) && (
-                                    <p>{errors.academies}</p>
-                                )}
-                                {errorsResponse?.academies && (
-                                    <div>{errorsResponse.academies.message}</div>
-                                )}
-                                Música
-                                </label>
-                                <label>
-                                <Field type="checkbox" name="academies" value="astronomia"/>
-                                {(errors.academies && touched.academies) && (
-                                    <p>{errors.academies}</p>
-                                )}
-                                {errorsResponse?.academies && (
-                                    <div>{errorsResponse.academies.message}</div>
-                                )}
-                                Astronomía
-                                </label>
-                                <br/>
+                            </div>
+                             <br/>
                             <button type="submit">Enviar</button>
                         </div>
                     </Form>
